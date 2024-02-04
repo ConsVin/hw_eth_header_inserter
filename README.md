@@ -1,20 +1,18 @@
 
 ## Summary
 
-Module recieves packet from AXI-Stream interface, append Ethernet Header at the beginning of packet and send it to output interface.
+The module receives a packet from the AXI-Stream interface, appends the Ethernet2 Header at the beginning of a packet, and sends it to the output interface.
 - Both input and output AXI-stream interfaces don't have backpressure, or `ready` signal
-- Minumum gap between packets - 2 clock period should be maintained by sender. Kittens may be harmed otherwise. 
+- Minimum gap between packets - 2 clock period should be maintained by sender. Kittens may be harmed otherwise. 
 - Support any packet length from 1B with no upper limit
 - Latency  1 clock (can be reduced)
-- Support idle cycles (not-valid) in the middle of the packet
+- Support idle cycles (not valid) in the middle of the packet
 - Doesn't add any extra idle cycles or invalid bytes in the packet
 
-Useful materials:
--  AXI-stream protocol spec https://developer.arm.com/documentation/ihi0051/latest/
-
+For AXI Stream spec see  https://developer.arm.com/documentation/ihi0051/latest/
 
 >NOTE: In AXI Stream protocol signal `tkeep`  is a byte-valid mask. On the diagram bellow, `tkeep` shows the number of lower valid bytes.
-Eg, an actual `tkeep` value `b0000_0111` is shown as `3` on the waveform, and waveform's tkeep value `8` corresponds to `b1111_1111` byte-mask
+Eg, an actual `tkeep` value `b0000_0111` is shown as `3` on the waveform, and the waveform's `tkeep` value `8` corresponds to the `b1111_1111` byte-mask
 
 ## Waveform without idles
 
@@ -24,10 +22,10 @@ Eg, an actual `tkeep` value `b0000_0111` is shown as `3` on the waveform, and wa
 ![plot](./docs/waveform_idles.png)
 
 
-## RTL deisgn
+## RTL design
 
 RTL structure is a pipeline with control logic implemented in VHDL 93.
-Ethernet header parameters are synthethis-time defined constants.
+Ethernet header parameters are synthesis-time defined constants.
 
 General purpouse code is moved to the separate package [byte_arr_pkg.rtl.vhd](vhd/byte_arr_pkg.rtl.vhd) and top level is implemented as one entity in the [eth_header.rtl.vhd](vhd/eth_header.rtl.vhd)
 
@@ -42,7 +40,7 @@ General purpouse code is moved to the separate package [byte_arr_pkg.rtl.vhd](vh
 Activate conda and then:
 
 ```sh
-# For debian-based only
+# For Debian-based only
 sudo apt-get install ghdl
 
 # Create and activate conda env from file
@@ -97,13 +95,13 @@ Testbench file a class `EthernetHeaderTB`
 
 ### Basic Test
 
-To run a specific testcase, envoke `make TESTCASE=basic_test`. 
-Testcase `def basic_test(dut):` will instantiate `EthernetHeaderTB` object and send several packets.
+To run a specific testcase, invoke `make TESTCASE=basic_test`. 
+Testcase `def basic_test(dut):` will instantiate the `EthernetHeaderTB` object and send several packets.
 
-Cocotb will store results of simulation to `waveform.ghw` file.
+Cocotb will store the results of the simulation the `waveform.ghw` file.
 To view the waveform file, install `gtkwave` and run `gtkwave waveform.ghw`
 
-See waveform screenshot and log file bellow:
+See the waveform screenshot and log file below:
 
 ![plot](./docs/test_basic.png)
 
@@ -238,8 +236,8 @@ async def test_idles(dut):
 
 ### Regression testing
 
-Regression testing is implement with `TestFactory`. 
-`TestFactory` invokes test function `run_test` with different combinations of arguments
+Regression testing is implemented with `TestFactory`. 
+`TestFactory` invokes the test function `run_test` with different combinations of arguments
 
 Specific test `make TESTCASE=run_test_006`:
 
