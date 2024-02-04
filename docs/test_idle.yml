@@ -1,0 +1,33 @@
+{signal: [
+  {name: 'clk',        wave: 'p..............'},
+  {name: 'i_tvalid',   wave: '01.0..10..10...', node: '..A.B..'},
+  {name: 'i_tlast',    wave: '0.........10...'},
+  {name: 'i_tkeep',    wave: 'z44z..4z..5z...', data:[8,8,8,3]},
+  {name: 'i_tdata[7]', wave: 'z78z..9z..6z...', data: ['-',  'B7', 'C7', '-']},
+  {name: 'i_tdata[6]', wave: 'z78z..9z..6z...', data: ['A6', 'B6', 'C6', '-']},
+  {name: 'i_tdata[5]', wave: 'z78z..9z..6z...', data: ['A5', 'B5', 'C5', '-']},
+  {name: 'i_tdata[4]', wave: 'z78z..9z..6z...', data: ['A4', 'B4', 'C4', '-']},
+  {name: 'i_tdata[3]', wave: 'z78z..9z..6z...', data: ['A3', 'B3', 'C3', '-']},
+  {name: 'i_tdata[2]', wave: 'z78z..9z..6z...', data: ['A2', 'B2', 'C2', 'D2']},
+  {name: 'i_tdata[1]', wave: 'z78z..9z..6z...', data: ['A1', 'B1', 'C1', 'D1']},
+  {name: 'i_tdata[0]', wave: 'z78z..9z..6z...', data: ['A0', 'B0', 'C0', 'D0']},
+  
+  {name: 'data_arr[2]',     wave: 'z.78...9...6...',     data: ['A ', 'B ', 'C',  'D']},
+  {name: 'data_arr[1]',     wave: 'z..78...9...6..',    data: ['A',  'B' , 'C',  'D']},
+  {name: 'data_arr[0]',     wave: 'z...78...9...6.',   data: ['A',  'B' , 'C',  'D']},
+
+  {name: 'o_tvalid',   wave: '0.1..0..10..1.0',node: '..C.D..'},
+  {name: 'o_tlast',    wave: '0............10'},
+  {name: 'o_tkeep',    wave: 'z.4..........6z',   data: [8,  6]},
+  {name: 'o_tdata[7]', wave: 'z.478...9...6..', data: ['SRC', 'A1',   'B1' ,'C1 ' , 'D1', '-' ]},
+  {name: 'o_tdata[6]', wave: 'z.478...9...6..', data: ['SRC', 'A0',   'B0' ,'C0 ' , 'D0', '-' ]},
+  {name: 'o_tdata[5]', wave: 'z.3478...9...2.', data: ['DST', 'type', 'A7' ,'B7', 'C7' ,  '-' ]},
+  {name: 'o_tdata[4]', wave: 'z.3478...9...2.', data: ['DST', 'type', 'A6', 'B6', 'C6' ,  '-' ]},
+  {name: 'o_tdata[3]', wave: 'z.3478...9...2.', data: ['DST', 'SRC',  'A5', 'B5', 'C5' ,  '-' ]},
+  {name: 'o_tdata[2]', wave: 'z.3478...9...2.', data: ['DST', 'SRC',  'A4', 'B4', 'C4' ,  '-' ]},
+  {name: 'o_tdata[1]', wave: 'z.3478...9...2.', data: ['DST', 'SRC',  'A3', 'B3', 'C3' ,  '-' ]},
+  {name: 'o_tdata[0]', wave: 'z.3478...9...6.', data: ['DST', 'SRC',  'A2', 'B2', 'C2' ,  'D2' ]},
+
+],
+  config: { hscale: 1}
+}

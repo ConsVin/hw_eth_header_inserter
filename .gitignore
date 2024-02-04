@@ -1,0 +1,8 @@
+# Waveform files
+*.vcd
+*.ghw
+# Results
+*.xml
+# Python/RTL temporary folders
+*build*/
+*cache*/
